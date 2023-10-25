@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   filterByTemperament,
   getDogsByName,
   orderByCreate,
   orderCards,
   orderByWeight,
+  resetState,
 } from "../redux/actions";
 import { InputStyled } from "../styled/inputStyled";
 import { SearchStyled } from "../styled/searchStyled";
@@ -20,17 +22,23 @@ import {
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
-  const [searchName, setSearchName] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const temperament = useSelector((state) => state.Temperaments);
+
   function handleChange(event) {
     event.preventDefault();
-    setSearchName(event.target.value);
+    setSearchInput(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(getDogsByName(searchName));
+    dispatch(getDogsByName(searchInput));
+    setSearchInput("");
   }
+
+  useEffect(() => {
+    setSearchInput("");
+  }, [dispatch]);
 
   const handleByTemperament = (event) => {
     console.log(event.target.value);
@@ -49,18 +57,29 @@ export const SearchBar = () => {
     dispatch(orderByWeight(event.target.value));
   };
 
+  const reset = ()=>{
+    dispatch(resetState())
+  }
+
   return (
     <SearchStyled>
       <HeaderApp>
         <InputStyled
           placeholder="raza del perro"
           type="search"
-          onChange={(event) => handleChange(event)}
+          value={searchInput}
+          onChange={handleChange}
         />
         <Button type="submit" onClick={handleSubmit}>
           Buscar
         </Button>
+        <Button onClick={reset}>
+          Todos los pokemons
+        </Button>
       </HeaderApp>
+      <Link to={"/createDog"}>
+        <Button>Nuevo dog</Button>
+      </Link>
 
       <FilterStyle>
         <h2>filtrar por temperamento</h2>
@@ -96,6 +115,10 @@ export const SearchBar = () => {
           <OptionStyled value="B">menor a mayor</OptionStyled>
         </SelectStyled>
       </FilterStyle>
+      <Link to={'/deletedog'}>
+      <Button>delete dog</Button>
+      </Link>
+      
     </SearchStyled>
   );
 };

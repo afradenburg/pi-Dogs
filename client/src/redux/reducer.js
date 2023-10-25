@@ -6,6 +6,10 @@ import {
   ORDER_BY_CREATE,
   ORDER,
   ORDER_BY_WEIGHT,
+  GET_DOG_DETAIL,
+  POST_DOG,
+  RESET,
+  DELETE,
 } from "./actionsTypes";
 
 let initialState = { Dogs: [], DogsCopy: [], Temperaments: [] };
@@ -79,6 +83,31 @@ const rootReducer = (state = initialState, action) => {
           );
         }),
       };
+
+    case GET_DOG_DETAIL:
+      return {
+        ...state,
+        DogsCopy: action.payload,
+      };
+
+    case POST_DOG:
+      return {
+        ...state,
+        Dogs: [...state.Dogs, action.payload],
+      };
+
+    case RESET:
+      return {
+        ...state,
+        Dogs: state.DogsCopy,
+      };
+    
+    case DELETE:{
+      return{
+        ...state,
+        Dogs: state.Dogs
+      }
+    }
 
     default:
       return state;

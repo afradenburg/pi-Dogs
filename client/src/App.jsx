@@ -7,6 +7,7 @@ import { CreatePage } from './views/createPage';
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getTemperaments } from './redux/actions';
+import { DeleteDog } from './views/deleteDog';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandinPage/>}> </Route>
         <Route path="/home" element={<HomePage/>}> </Route>
-        <Route path="/detail" element={<DetailPage/>}> </Route>
-        <Route path="/createActivity" element={<CreatePage/>}> </Route>
+        <Route path="/detail/:id" element={<DetailPage/>}> </Route>
+        <Route path="/createDog" element={<CreatePage/>}> </Route>
+        <Route path="/deletedog" element={<DeleteDog/>}> </Route>
       </Routes>
     </div>
   
