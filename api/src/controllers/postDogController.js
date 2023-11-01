@@ -1,12 +1,18 @@
 const { Dog, Temperaments } = require("../db");
 
-async function postDog({name,life_span,image,weight, height,temperament,}) {
-
- 
+async function postDog({ name, life_span, image, weight, height, temperament }) {
   try {
+    const nameWords = name.split(" ");
+    const formattedName = nameWords
+      .map((string) => {
+        const firstLetter = string.charAt(0).toUpperCase();
+        const restOfWord = string.slice(1).toLowerCase();
+        return firstLetter + restOfWord;
+      }).join(" ");
+
     const existingDog = await Dog.findOne({
       where: {
-        name: name,
+        name: formattedName,
       },
     });
 
@@ -15,21 +21,21 @@ async function postDog({name,life_span,image,weight, height,temperament,}) {
     }
 
     const newDog = await Dog.create({
-      name,
+      name: formattedName,
       life_span,
       image,
       weight,
       height,
     });
+
     if (temperament && temperament.length > 0) {
-      // const temperamentArray = temperament.split(",");
       for (const temp of temperament) {
         const associationTemperament = await Temperaments.findOne({
           where: {
             name: temp,
           },
         });
-        console.log("temperatii", associationTemperament)
+
         if (associationTemperament) {
           await newDog.addTemperament(associationTemperament);
         }
