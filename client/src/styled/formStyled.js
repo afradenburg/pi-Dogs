@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import imageLogo from "../assets/pokebola.png"
+
 
 export const FormLogin = styled.form`
-  /* background-image: url(${imageLogo}); */
+ 
   background-color: black;
   background-position: center;
   background-size: cover;

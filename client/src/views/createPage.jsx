@@ -1,117 +1,175 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { postDog } from '../redux/actions'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { postDog } from '../redux/actions';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import { SelectStyled, OptionStyled } from "../styled/selectFavorites";
+import { validation } from '../helpers/validate';
+import { FormLogin } from '../styled/formStyled';
 
 export const CreatePage = () => {
-  const dispatch = useDispatch()
-  const temperaments = useSelector((state)=> state.Temperaments)
+ 
+  const dispatch = useDispatch();
+  const temperaments = useSelector((state) => state.Temperaments);
 
-  const [dog, setDog ] = useState({
+  const [dog, setDog] = useState({
     name: "",
-    id: "",
     life_span: "",
-    image: "", 
+    image: "",
     weight: "",
-    height: "", 
+    maxWeight: "",
+    height: "",
+    masHeight: "",
     temperament: []
+  });
+
+  const [errors, setErrors] = useState({
+    name: "campo requerido",
+    life_span: "campo requerido",
+    image: "campo requerido",
+    weight: "campo requerido",
+    maxWeight: "campo requerido",
+    height: "campo requerido",
+    masHeight: "campo requerido",
   })
 
-  const handleChange= (event) => {
+  const handleChange = (event) => {
     setDog({
       ...dog,
       [event.target.name]: event.target.value
-    })
-  }
+    });
+    setErrors(
+      validation({
+      ...dog,
+      [event.target.name]: event.target.value
+    }))
+  };
 
-  const handleTemperament=(event) => {
-    if(!dog.temperament.includes(event.target.value)){
+
+  const handleTemperament = (event) => {
+    if (!dog.temperament.includes(event.target.value)) {
       setDog({
         ...dog,
         temperament: [...dog.temperament, event.target.value]
-      })
+      });
     }
-  }
+  };
 
-  const returnDog= () => {
-    
+  const newDog = {
+    name: dog.name,
+    life_span: dog.life_span,
+    image: dog.image,
+    weight: `${dog.weight} - ${dog.maxWeight}`,
+    height: `${dog.height} - ${dog.masHeight}`,
+    temperament: dog.temperament
   }
-
-  const handleSubmit = (event)=>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(postDog(dog))
-    console.log(dog)
+    dispatch(postDog(newDog));
+    
     setDog({
       name: "",
       id: "",
       life_span: "",
-      image: "", 
+      image: "",
       weight: "",
-      height: "", 
+      height: "",
       temperament: []
-    })
+    });
+  };
+
+  function disableHandler() {
+    for (let error in errors) {
+      if (errors[error] !== "") {
+        return true;
+      }
+    }
+    for (let input in dog) {
+      if (dog[input] === "") {
+        return true;
+      }
+    }
+    return false;
   }
 
   return (
-   <form onSubmit={handleSubmit}>
-    <label>
-      Name:
-      <input
-      type="text"
-      name='name'
-      value={dog.name}
-      onChange={handleChange}
-      />
-    </label>
+    <FormLogin onSubmit={handleSubmit}>
+      <label>
+        Nombre:
+        <input
+          type="text"
+          name='name'
+          value={dog.name}
+          onChange={handleChange}
+        />
+      </label>
+      {errors.name  && <span>{errors.name}</span>}
+      <label>
+        Tiempo de vida:
+        <input
+          type="text"
+          name='life_span'
+          value={dog.life_span}
+          onChange={handleChange}
+        />
+      </label>
+      {errors.life_span  && <span>{errors.life_span}</span>}
+      <label>
+        Imagen:
+        <input
+          type="text"
+          name='image'
+          value={dog.image}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Peso minimo:
+        <input
+          type="text"
+          name='weight'
+          value={dog.weight}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Peso maximo:
+        <input
+          type="text"
+          name='maxWeight'
+          value={dog.maxWeight}
+          onChange={handleChange}
+        />
+      </label>
 
-    <label>
-      tiempo de vida:
-      <input
-      type="text"
-      name='life_span'
-      value={dog.life_span}
-      onChange={handleChange}
-      />
-    </label>
+      {errors.weight  && <span>{errors.weight}</span>}
+      <label>
+        Altura minima:
+        <input
+          type="text"
+          name='height'
+          value={dog.height}
+          onChange={handleChange}
+        />
+      </label>
+      {errors.height  && <span>{errors.height}</span>}
+      
+      <label>
+        Altura maxima:
+        <input
+          type="text"
+          name='masHeight'
+          value={dog.masHeight}
+          onChange={handleChange}
+        />
+      </label>
 
-    <label>
-      Image:
-      <input
-      type="text"
-      name='image'
-      value={dog.image}
-      onChange={handleChange}
-      />
-    </label>
-
-    <label>
-      peso:
-      <input
-      type="text"
-      name='weight'
-      value={dog.weight}
-      onChange={handleChange}
-      />
-    </label>
-
-    <label>
-      altura:
-      <input
-      type="text"
-      name='height'
-      value={dog.height}
-      onChange={handleChange}
-      />
-    </label>
-
-    <label>
-        Type:
+      <label>
+        Temperamento:
         <SelectStyled
           onChange={handleTemperament}
           type="text"
-          name="type"
+          name="temperament"
           multiple
           value={dog.temperament}
         >
@@ -122,15 +180,14 @@ export const CreatePage = () => {
           ))}
         </SelectStyled>
       </label>
-
-    <button type="submit">
-        Crear Dog
+      <button type="submit" disabled={disableHandler()}>
+        Crear Perro
       </button>
       <div>
         <Link to={"/home"}>
-          <button>volver</button>
+          <button>Volver</button>
         </Link>
       </div>
-   </form>
-  )
-}
+    </FormLogin>
+  );
+};

@@ -35,6 +35,8 @@ export const CardStyle = styled.div`
   background-position: center;
   background-color: gray ;
   border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
   padding: 20px;
   margin: 10px;
   text-align: center;
@@ -44,7 +46,7 @@ export const CardStyle = styled.div`
 export const Button = styled.button`
   background-color: #f5f5f5;
   border: 3px;
-  border-radius: 1%;
+  border-radius: 8%;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -56,18 +58,19 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 10px;
 `;
 
 export const Image = styled.img`
 
 background-position: center;
-  width: 150px;
-  height:150px;
+  width: 100%;
+  max-width: 300px;
   margin-top: 20px;
-border  : 5px solid blueviolet ;
-border-radius: 50%;
+border  : 3px solid black ;
+border-radius: 15px;
+
 `;
 
 export const ID = styled.h3`

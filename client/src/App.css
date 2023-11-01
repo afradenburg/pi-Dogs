@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  align-self: center;
+  background-image: url("./assets/huellas.jpgs");
+
 }
 
 .logo {

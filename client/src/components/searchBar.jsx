@@ -62,7 +62,7 @@ export const SearchBar = () => {
   }
 
   return (
-    <SearchStyled>
+    <SearchStyled typeof="search">
       <HeaderApp>
         <InputStyled
           placeholder="raza del perro"
@@ -74,7 +74,7 @@ export const SearchBar = () => {
           Buscar
         </Button>
         <Button onClick={reset}>
-          Todos los pokemons
+          Todos los dogs
         </Button>
       </HeaderApp>
       <Link to={"/createDog"}>

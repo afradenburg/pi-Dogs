@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Container } from '../styled/containerStyled';
+import { Title, Button } from '../styled/landinPageStyled';
+
+
 
 export const LandinPage = () => {
   return (
-    <div>
-      <h1>All Dogs</h1>
+
+    <Container>
+      <Title>All Dogs</Title>
       <Link to={"/home"}>
-        <button>Ingresar</button>
+        <Button>Ingresar</Button>
       </Link>
-    </div>
+    </Container>
   );
 };
+ 

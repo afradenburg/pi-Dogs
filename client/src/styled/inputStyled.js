@@ -15,7 +15,7 @@ const neonAnimation = keyframes`
 export const InputStyled = styled.input`
   padding: 10px;
   border-radius: 5px;
-
+  text-align: center;
   font-size: 16px;
   color: black;
   background-color: white;
@@ -30,5 +30,16 @@ export const InputStyled = styled.input`
   &:focus {
     box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
   }
+
+  @media screen and (max-width: 768px) {
+  /* Estilos para pantallas más pequeñas */
+  padding: 2% 1%;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  /* Estilos para pantallas aún más pequeñas */
+  padding: 1% 0;
+}
 `;
 

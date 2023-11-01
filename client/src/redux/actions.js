@@ -118,7 +118,7 @@ export const postDog= (props)=>{
         })
       }
     } catch (error) {
-      console("Error al crear nuevo dog :(", error);
+      console.log("Error al crear nuevo dog :(", error);
     }
   }
 }
