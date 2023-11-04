@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 
 export const getDogs = () => {
-  const endPoint = "http://localhost:3001/dogs";
+  const endPoint = "/dogs";
   return async (dispatch) => {
     try {
       const data = await axios.get(endPoint);
@@ -31,7 +31,7 @@ export const getDogs = () => {
 };
 
 export const getDogsByName = (name) => {
-  const endPoint = `http://localhost:3001/dogsname/?name=${name}`;
+  const endPoint = `/dogsname/?name=${name}`;
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endPoint);
@@ -53,7 +53,7 @@ export const filterByTemperament = (temperament) => {
 };
 
 export const getTemperaments = () => {
-  const endPoint = "http://localhost:3001/temperaments";
+  const endPoint = "/temperaments";
   return async (dispatch) => {
     try {
       const temperaments = await axios.get(endPoint);
@@ -90,7 +90,7 @@ export const orderByWeight = (weight) => {
 
 export const getDogDetail = (id) => {
   console.log(id)
-  const endPoint = `http://localhost:3001/dogs/${id}`;
+  const endPoint = `/dogs/${id}`;
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endPoint);
@@ -105,7 +105,7 @@ export const getDogDetail = (id) => {
 };
 
 export const postDog= (props)=>{
-  const endPoint = "http://localhost:3001/dogs"
+  const endPoint = "/dogs"
   return async (dispatch)=>{
     try {
       const newDog = await axios.post(endPoint, props)
@@ -136,7 +136,7 @@ export const resetState= ()=>{
 }
 
 export const deleteDog = (name) => {
-  const endPoint = `http://localhost:3001/dogs/delete/?name=${name}`; 
+  const endPoint = `/dogs/delete/?name=${name}`; 
   return async (dispatch) => {
     try {
       const response = await axios.delete(endPoint);
