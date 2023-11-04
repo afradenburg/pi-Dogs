@@ -10,7 +10,7 @@ import { getTemperaments } from './redux/actions';
 import { DeleteDog } from './views/deleteDog';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://dogs-backend-en4j.onrender.com'
+axios.defaults.baseURL = 'https://dogs-backend-en4j.onrender.com/'
 function App() {
   const dispatch = useDispatch();
 
