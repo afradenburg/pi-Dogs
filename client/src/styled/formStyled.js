@@ -1,10 +1,11 @@
 import styled from "styled-components";
-
+import fondo from "../assets/form.jpg"
 
 export const FormLogin = styled.form`
  
   background-color: black;
   background-position: center;
+  background-image: url(${fondo});
   background-size: cover;
   display: flex;
   margin: 10% 0;
@@ -22,4 +23,14 @@ export const FormLogin = styled.form`
   box-shadow: 7px 5px 5px blueviolet;
   width: 500%;
   
+  @media screen and (max-width: 768px) {
+  /* Estilos para pantallas más pequeñas */
+  padding: 2% 1%;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  /* Estilos para pantallas aún más pequeñas */
+  padding: 1% 0;
+}
 `;
