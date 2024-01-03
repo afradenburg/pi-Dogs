@@ -62,6 +62,7 @@ export const getTemperaments = () => {
         payload: temperaments.data,
       });
     } catch (error) {
+      console.log(error.message);
       alert("temperamentos perdidos");
     }
   };
