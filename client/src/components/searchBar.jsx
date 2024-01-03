@@ -82,18 +82,19 @@ export const SearchBar = () => {
       </Link>
 
       <FilterStyle>
-        <h2>filtrar por temperamento</h2>
-        <SelectStyled onChange={handleByTemperament}>
+        <h2>Temperament</h2>
+        
+        <SelectStyled onChange={handleByTemperament} placeholder="temperament">
           {temperament.map((temperament) => (
-            <OptionStyled key={temperament.name} value={temperament.name}>
+            <OptionStyled key={temperament.name} value={temperament.name} placeholder="temperament">
               {temperament.name}
             </OptionStyled>
           ))}
         </SelectStyled>
       </FilterStyle>
 
-      <FilterStyle className="order create">
-        <h2>Filtar por creacion</h2>
+      <FilterStyle className="order create" placeholder="hola">
+        <h2>Create</h2>
         <SelectStyled onChange={handleOrderByCreate}>
           <OptionStyled value="D">No Creados</OptionStyled>
           <OptionStyled value="C">Creados</OptionStyled>
@@ -101,7 +102,7 @@ export const SearchBar = () => {
       </FilterStyle>
 
       <FilterStyle className="order abc">
-        <h2>Orden alfabetico</h2>
+        <h2>A/Z</h2>
         <SelectStyled onChange={handleOrder}>
           <OptionStyled value="A">Ascendente</OptionStyled>
           <OptionStyled value="B">Descendente</OptionStyled>
@@ -109,7 +110,7 @@ export const SearchBar = () => {
       </FilterStyle>
 
       <FilterStyle className="order weight">
-        <h2>ordenar por peso</h2>
+        <h2>weight</h2>
         <SelectStyled onChange={handleOrderByWeight}>
           <OptionStyled value="A">mayor a menor</OptionStyled>
           <OptionStyled value="B">menor a mayor</OptionStyled>
