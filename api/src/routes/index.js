@@ -19,5 +19,5 @@ router.get("/dogs/:id", getDogsIdHandler);
 router.get("/dogsname", getDogByNameHandler);
 router.post("/dogs", postDogsHandler);
 router.get("/temperaments", getTemperamentsHandler);
-router.delete("/dogs/delete", deleteDogHandler)
+router.delete("/dogs/:id", deleteDogHandler)
 module.exports = router;

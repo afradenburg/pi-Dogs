@@ -1,10 +1,11 @@
 const { Dog } = require("../db");
 
-async function deleteDog(name) {
+async function deleteDog(id) {
+  console.log(id)
   try {
     const byeDog = await Dog.findOne({
       where: {
-        name: name,
+        id: id,
       },
     });
 

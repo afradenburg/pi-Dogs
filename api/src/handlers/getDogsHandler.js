@@ -5,6 +5,7 @@ async function getDogsHandler (req, res){
         const dogs = await getDogs()
         res.status(200).json(dogs)     
     } catch (error) {
+        console.log(error.message)
        res.status(404).send(error.message) 
     }
 }

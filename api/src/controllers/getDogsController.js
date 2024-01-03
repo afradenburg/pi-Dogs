@@ -48,6 +48,7 @@ async function getDogs() {
     const dogs = [...mappedDogs, ...dogsFromApi];
     return dogs;
   } catch (error) {
+    console.log(error.message)
     throw new Error(error.message);
   }
 }
