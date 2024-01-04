@@ -7,8 +7,22 @@ import { SelectStyled, OptionStyled } from "../styled/selectFavorites";
 import { validation } from '../helpers/validate';
 import { FormLogin } from '../styled/formStyled';
 
+// import {Cloudinary} from "@cloudinary/url-gen";
+// import {v2 as cloudinary} from 'cloudinary';
+
+// import {Cloudinary} from "@cloudinary/url-gen";
+
+
+
+
+          
+
 export const CreatePage = () => {
- 
+  // const cld = new Cloudinary({
+  //   cloud: {
+  //     cloudName: 'djif4cgg0',
+  //   },
+  // });
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.Temperaments);
 
@@ -33,6 +47,31 @@ export const CreatePage = () => {
     masHeight: "campo requerido",
   })
 
+  const handleUploadImage = async (event) => {
+    const files = event.target.files
+    const data = new FormData()
+    data.append("file", files[0])
+    data.append("upload_preset", "images")
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/djif4cgg0/image/upload",
+        {
+          method: "POST",
+          body: data,
+          // mode: "no-cors"
+        }
+      );
+      console.log(res)
+
+
+      const url = await res.json()
+      console.log("soy file", url.secure_url)
+      setDog({ ...dog, image: url.secure_url})
+    } catch (error) {
+      throw new Error(error.message)
+    }
+  };
+  
   const handleChange = (event) => {
     setDog({
       ...dog,
@@ -117,10 +156,10 @@ export const CreatePage = () => {
       <label>
         Imagen:
         <input
-          type="text"
-          name='image'
-          value={dog.image}
-          onChange={handleChange}
+          type="file"
+          name='file'
+          placeholder='sube tu imagen'
+          onChange={handleUploadImage}
         />
       </label>
       <label>
