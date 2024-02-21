@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../styled/button"
-
+import { Pagin } from "../styled/pagination";
 
 export const Pagination = ({ page, totalPages }) => {
   console.log(totalPages)
@@ -10,12 +10,12 @@ export const Pagination = ({ page, totalPages }) => {
   }
 
   return (
-    <div>
+    <Pagin>
       {pageNumbers.map((pageNumber) => (
-        <Button key={pageNumber} onClick={() => page(pageNumber)}>
+        <Button style={{margin: "10px"}} key={pageNumber} onClick={() => page(pageNumber)}>
           {pageNumber}
         </Button>
       ))}
-    </div>
+    </Pagin>
   );
 };

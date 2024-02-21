@@ -126,9 +126,6 @@ export const SearchBar = () => {
           <OptionStyled value="B">menor a mayor</OptionStyled>
         </SelectStyled>
       </FilterStyle>
-      <Link to={"/deletedog"}>
-        <Button>delete dog</Button>
-      </Link>
     </SearchStyled>
   );
 };
