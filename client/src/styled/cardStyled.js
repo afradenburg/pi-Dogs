@@ -70,7 +70,8 @@ background-position: center;
   margin-top: 20px;
 border  : 3px solid black ;
 border-radius: 15px;
-
+height: 100%;
+max-height: 140px;
 `;
 
 export const ID = styled.h3`
