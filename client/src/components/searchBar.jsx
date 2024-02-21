@@ -57,9 +57,9 @@ export const SearchBar = () => {
     dispatch(orderByWeight(event.target.value));
   };
 
-  const reset = ()=>{
-    dispatch(resetState())
-  }
+  const reset = () => {
+    dispatch(resetState());
+  };
 
   return (
     <SearchStyled typeof="search">
@@ -73,53 +73,62 @@ export const SearchBar = () => {
         <Button type="submit" onClick={handleSubmit}>
           Buscar
         </Button>
-        <Button onClick={reset}>
-          Todos los dogs
-        </Button>
+        <Button onClick={reset}>Todos los dogs</Button>
       </HeaderApp>
       <Link to={"/createDog"}>
         <Button>Nuevo dog</Button>
       </Link>
 
       <FilterStyle>
-        <h2>Temperament</h2>
-        
+        <h2 style={{marginRight: "10px", marginLeft: "10px"}}>Filtrar  </h2>
+
         <SelectStyled onChange={handleByTemperament} placeholder="temperament">
+        <OptionStyled value= "" disabled selected hidden> temperament:</OptionStyled>
           {temperament.map((temperament) => (
-            <OptionStyled key={temperament.name} value={temperament.name} placeholder="temperament">
+            <OptionStyled
+              key={temperament.name}
+              value={temperament.name}
+              placeholder="temperament"
+            >
               {temperament.name}
             </OptionStyled>
           ))}
         </SelectStyled>
       </FilterStyle>
 
-      <FilterStyle className="order create" placeholder="hola">
-        <h2>Create</h2>
-        <SelectStyled onChange={handleOrderByCreate}>
+      <FilterStyle className="order create">
+        <SelectStyled onChange={handleOrderByCreate} placeholder="hola ">
+          <OptionStyled value="" disabled selected hidden>
+            {" "}
+            creacion:
+          </OptionStyled>
           <OptionStyled value="D">No Creados</OptionStyled>
           <OptionStyled value="C">Creados</OptionStyled>
         </SelectStyled>
       </FilterStyle>
 
       <FilterStyle className="order abc">
-        <h2>A/Z</h2>
+        <h2 style={{marginRight: "10px", marginLeft: "10px"}}>Ordenar  </h2>
         <SelectStyled onChange={handleOrder}>
+          <OptionStyled value="" disabled selected hidden>
+            {" "}
+            Alfabeticamente:
+          </OptionStyled>
           <OptionStyled value="A">Ascendente</OptionStyled>
           <OptionStyled value="B">Descendente</OptionStyled>
         </SelectStyled>
       </FilterStyle>
 
       <FilterStyle className="order weight">
-        <h2>weight</h2>
         <SelectStyled onChange={handleOrderByWeight}>
+        <OptionStyled value= "" disabled selected hidden> peso:</OptionStyled>
           <OptionStyled value="A">mayor a menor</OptionStyled>
           <OptionStyled value="B">menor a mayor</OptionStyled>
         </SelectStyled>
       </FilterStyle>
-      <Link to={'/deletedog'}>
-      <Button>delete dog</Button>
+      <Link to={"/deletedog"}>
+        <Button>delete dog</Button>
       </Link>
-      
     </SearchStyled>
   );
 };

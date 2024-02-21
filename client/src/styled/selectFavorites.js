@@ -6,13 +6,17 @@ align-items: center;
 justify-content: center;
 padding: 8px;
 font-size: 14px;
-border: 1px solid blueviolet;
+border: 1px solid royalblue ;
 border-radius: 5px;
 background-color: white;
 color: black;
 outline: none;
 cursor: pointer;
 width: 100px; /* Ancho fijo */
+::placeholder {
+  color: gray;
+  
+}
 
 
 &:hover {
