@@ -36,7 +36,7 @@ export const CardStyle = styled.div`
   background-color: gray ;
   border-radius: 8px;
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
   padding: 20px;
   margin: 10px;
   text-align: center;
