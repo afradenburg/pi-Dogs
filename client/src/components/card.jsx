@@ -13,8 +13,8 @@ export const Card = ({dog}) => {
         <Link to={`/detail/${id}`}>
         <Image src={image} alt={name} />
         </Link>
-        <h2>temperamentos: {temperament}</h2>
-        <h2>peso: {weight} Kg</h2>
+        <p>temperamentos: {temperament}</p>
+        <p>peso: {weight} Kg</p>
     </CardStyle>
   )
 }
