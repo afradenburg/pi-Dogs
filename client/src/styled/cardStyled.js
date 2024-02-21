@@ -66,12 +66,12 @@ export const Image = styled.img`
 
 background-position: center;
   width: 100%;
-  max-width: 300px;
-  margin-top: 20px;
+  max-width: 200px;
+  margin-top: 10px;
 border  : 3px solid black ;
 border-radius: 15px;
 height: 100%;
-max-height: 140px;
+max-height: 150px;
 `;
 
 export const ID = styled.h3`
