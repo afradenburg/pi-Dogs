@@ -10,5 +10,6 @@ export const CardContainer = styled.div`
   
   & > * {
     flex: 1 1 200px;
+    margin-left: 0px;
   }
 `;
