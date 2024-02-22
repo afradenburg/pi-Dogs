@@ -73,8 +73,8 @@ background-position: center;
   width: 100%;
   max-width: 180px;
   margin-top: 10px;
-border  : 3px solid black ;
-border-radius: 15px;
+/* border  : 3px solid black ; */
+border-radius: 100px;
 height: 100%;
 max-height: 180px;
 `;

@@ -84,10 +84,10 @@ export const SearchBar = () => {
           Buscar
         </Button>
         <Button onClick={reset}>Todos los dogs</Button>
-      </HeaderApp>
       <Link to={"/createDog"}>
         <Button>Nuevo dog</Button>
       </Link>
+      </HeaderApp>
      
       <Container onClick={toggleFilters}>Filtrar</Container>
       <ButtonContainer style={{ display: showFilters ? 'flex' : 'none' }}>
