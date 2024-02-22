@@ -12,7 +12,7 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const dogs = useSelector((state) => state.Dogs);
   const [currentPage, setCurrentPage] = useState(1);
-  const elementPage = 10;
+  const elementPage = 8;
   const totalPages = dogs ? Math.ceil(dogs.length / elementPage) : 0;
 
   const pageHandler = (pageNumber) => {

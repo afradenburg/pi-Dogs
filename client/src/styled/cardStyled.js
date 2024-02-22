@@ -33,10 +33,13 @@ export const Content = styled.div`
 export const CardStyle = styled.div`
   
   background-position: center;
-  background-color: gray ;
+  background-color: #79d1d530;
   border-radius: 8px;
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 500px;
+  min-height: 500px;
   padding: 20px;
   margin: 10px;
   text-align: center;
@@ -66,12 +69,12 @@ export const Image = styled.img`
 
 background-position: center;
   width: 100%;
-  max-width: 200px;
+  max-width: 180px;
   margin-top: 10px;
 border  : 3px solid black ;
 border-radius: 15px;
 height: 100%;
-max-height: 150px;
+max-height: 180px;
 `;
 
 export const ID = styled.h3`

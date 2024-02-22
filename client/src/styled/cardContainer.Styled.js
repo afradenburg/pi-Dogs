@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   /* width: 100%; */
   /* justify-content: center; */
-  margin-left: 55px;
+  margin-left: 65px;
   
   & > * {
     flex: 1 1 200px;
