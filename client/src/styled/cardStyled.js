@@ -50,6 +50,8 @@ export const Button = styled.button`
   background-color: #f5f5f5;
   border: 3px;
   border-radius: 8%;
+  margin-top: 15px;
+  margin-right: 15px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;

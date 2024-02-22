@@ -19,10 +19,16 @@ import {
   OptionStyled,
   SelectStyled,
 } from "../styled/selectFavorites";
+import {
+  ButtonContainer,
+  Container,
+  FilterButton,
+} from "../styled/containerFilter";
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
   const temperament = useSelector((state) => state.Temperaments);
 
   function handleChange(event) {
@@ -61,6 +67,10 @@ export const SearchBar = () => {
     dispatch(resetState());
   };
 
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+  };
+
   return (
     <SearchStyled typeof="search">
       <HeaderApp>
@@ -78,54 +88,56 @@ export const SearchBar = () => {
       <Link to={"/createDog"}>
         <Button>Nuevo dog</Button>
       </Link>
+     
+      <Container onClick={toggleFilters}>Filtrar</Container>
+      <ButtonContainer style={{ display: showFilters ? 'flex' : 'none' }}>
+        <FilterButton>
+          <h2 style={{ marginRight: "10px", marginLeft: "10px" }}>Filtrar</h2>
+          <SelectStyled onChange={handleByTemperament} placeholder="temperament">
+            <OptionStyled value="" disabled selected hidden>temperament:</OptionStyled>
+            {temperament.map((temperament) => (
+              <OptionStyled key={temperament.name} value={temperament.name} placeholder="temperament">
+                {temperament.name}
+              </OptionStyled>
+            ))}
+          </SelectStyled>
+          <FilterStyle className="order create">
+            <SelectStyled onChange={handleOrderByCreate} placeholder="creacion:">
+              <OptionStyled value="" disabled selected hidden>creacion:</OptionStyled>
+              <OptionStyled value="D">No Creados</OptionStyled>
+              <OptionStyled value="C">Creados</OptionStyled>
+            </SelectStyled>
+          </FilterStyle>
+        </FilterButton>
 
-      <FilterStyle>
-        <h2 style={{marginRight: "10px", marginLeft: "10px"}}>Filtrar  </h2>
+          <FilterButton>
+            <FilterStyle className="order abc">
+              <h2 style={{ marginRight: "10px", marginLeft: "10px" }}>
+                Ordenar{" "}
+              </h2>
+              <SelectStyled onChange={handleOrder}>
+                <OptionStyled value="" disabled selected hidden>
+                  {" "}
+                  Alfabeticamente:
+                </OptionStyled>
+                <OptionStyled value="A">Ascendente</OptionStyled>
+                <OptionStyled value="B">Descendente</OptionStyled>
+              </SelectStyled>
+            </FilterStyle>
 
-        <SelectStyled onChange={handleByTemperament} placeholder="temperament">
-        <OptionStyled value= "" disabled selected hidden> temperament:</OptionStyled>
-          {temperament.map((temperament) => (
-            <OptionStyled
-              key={temperament.name}
-              value={temperament.name}
-              placeholder="temperament"
-            >
-              {temperament.name}
-            </OptionStyled>
-          ))}
-        </SelectStyled>
-      </FilterStyle>
-
-      <FilterStyle className="order create">
-        <SelectStyled onChange={handleOrderByCreate} placeholder="hola ">
-          <OptionStyled value="" disabled selected hidden>
-            {" "}
-            creacion:
-          </OptionStyled>
-          <OptionStyled value="D">No Creados</OptionStyled>
-          <OptionStyled value="C">Creados</OptionStyled>
-        </SelectStyled>
-      </FilterStyle>
-
-      <FilterStyle className="order abc">
-        <h2 style={{marginRight: "10px", marginLeft: "10px"}}>Ordenar  </h2>
-        <SelectStyled onChange={handleOrder}>
-          <OptionStyled value="" disabled selected hidden>
-            {" "}
-            Alfabeticamente:
-          </OptionStyled>
-          <OptionStyled value="A">Ascendente</OptionStyled>
-          <OptionStyled value="B">Descendente</OptionStyled>
-        </SelectStyled>
-      </FilterStyle>
-
-      <FilterStyle className="order weight">
-        <SelectStyled onChange={handleOrderByWeight}>
-        <OptionStyled value= "" disabled selected hidden> peso:</OptionStyled>
-          <OptionStyled value="A">mayor a menor</OptionStyled>
-          <OptionStyled value="B">menor a mayor</OptionStyled>
-        </SelectStyled>
-      </FilterStyle>
+            <FilterStyle className="order weight">
+              <SelectStyled onChange={handleOrderByWeight}>
+                <OptionStyled value="" disabled selected hidden>
+                  {" "}
+                  peso:
+                </OptionStyled>
+                <OptionStyled value="A">mayor a menor</OptionStyled>
+                <OptionStyled value="B">menor a mayor</OptionStyled>
+              </SelectStyled>
+            </FilterStyle>
+          </FilterButton>
+        </ButtonContainer>
+      
     </SearchStyled>
   );
 };

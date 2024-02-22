@@ -35,7 +35,7 @@ export const OptionStyled = styled.option`
 
 
 export const FilterStyle = styled.div`
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   text-align: center;
   align-items: center;

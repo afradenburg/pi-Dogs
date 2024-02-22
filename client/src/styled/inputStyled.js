@@ -22,6 +22,7 @@ export const InputStyled = styled.input`
   box-shadow: 0 0 10px #00ff00;
   animation: ${neonAnimation} 2s linear infinite;
   transition: box-shadow 0.3s ease;
+  width: 100%;
 
   &:hover {
     box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
