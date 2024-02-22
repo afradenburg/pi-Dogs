@@ -35,6 +35,7 @@ export const InputStyled = styled.input`
   /* Estilos para pantallas más pequeñas */
   padding: 2% 1%;
   width: 100%;
+  max-width: 300px;
 }
 
 @media screen and (max-width: 480px) {
