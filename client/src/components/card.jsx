@@ -9,7 +9,7 @@ export const Card = ({dog}) => {
 
   return (
     <CardStyle>
-        <h2>{name}</h2>
+        <h2 style={{fontSize: "30px"}}>{name}</h2>
         <Link to={`/detail/${id}`}>
         <Image src={image} alt={name} />
         </Link>
