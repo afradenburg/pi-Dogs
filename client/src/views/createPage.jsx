@@ -142,7 +142,7 @@ export const CreatePage = () => {
           onChange={handleChange}
         />
       </label>
-      {errors.name  && <span>{errors.name}</span>}
+      {errors.name  && <span style={{color: "red"}}>{errors.name}</span>}
       <label>
         Tiempo de vida:
         <input
@@ -152,7 +152,7 @@ export const CreatePage = () => {
           onChange={handleChange}
         />
       </label>
-      {errors.life_span  && <span>{errors.life_span}</span>}
+      {errors.life_span  && <span style={{color: "red"}}>{errors.life_span}</span>}
       <label>
         Imagen:
         <input
@@ -181,7 +181,7 @@ export const CreatePage = () => {
         />
       </label>
 
-      {errors.weight  && <span>{errors.weight}</span>}
+      {errors.weight  && <span style={{color: "red"}}>{errors.weight}</span>}
       <label>
         Altura minima:
         <input
@@ -191,7 +191,7 @@ export const CreatePage = () => {
           onChange={handleChange}
         />
       </label>
-      {errors.height  && <span>{errors.height}</span>}
+      {errors.height  && <span style={{color: "red"}}>{errors.height}</span>}
       
       <label>
         Altura maxima:

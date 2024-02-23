@@ -25,7 +25,7 @@ display: flex;
 `;
 
 export const FilterButton = styled.button`
-  background-color: #2ecc71;
+  background-color: #9bd5c6;
   color: white;
   padding: 5px 10px;
   margin: 5px;

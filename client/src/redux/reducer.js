@@ -12,7 +12,7 @@ import {
   DELETE,
 } from "./actionsTypes";
 
-let initialState = { Dogs: [], DogsCopy: [], Temperaments: [] };
+let initialState = { Dogs: [], DogsCopy: [], DogFilter: [], Temperaments: [] };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -42,10 +42,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Dogs: filterTemperament,
+        DogFilter: filterTemperament,
       };
 
     case ORDER_BY_CREATE:
-      const CopyDogsId = [...state.DogsCopy];
+      const dogTemperament = [...state.DogFilter]
+      if(dogTemperament.length === 0){
+        const CopyDogsId = [...state.DogsCopy];
       const filteredDog =
         action.payload === "C"
           ? CopyDogsId.filter((dog) => typeof dog.id === "string")
@@ -54,6 +57,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         Dogs: filteredDog,
       };
+      } else {
+        const filteredDog =
+      action.payload === "C"
+        ? dogTemperament.filter((dog) => typeof dog.id === "string")
+        : dogTemperament.filter((dog) => typeof dog.id === "number");
+    return {
+      ...state,
+      Dogs: filteredDog,
+    };
+      }
+
 
     case ORDER:
       const CopyDogsAll = [...state.Dogs];
@@ -100,6 +114,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         Dogs: state.DogsCopy,
+        DogFilter: []
       };
     
     case DELETE:{
