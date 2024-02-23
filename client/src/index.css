@@ -8,10 +8,10 @@ body {
   display: flex;
   height: 80vh;
   background-color: aliceblue;
-  /* background-image: url('./assets/huellas2.jpg') ; */
+   background-image: url('./assets/png.png') ; 
   
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;

@@ -27,8 +27,19 @@ export const DetailPage = () => {
   
   console.log(dogDetail)
   return (
-    <Content>
-      <CardStyle>
+    <div style={{display: "flex",
+      flexDirection: "column",
+      flexWrap: "wrap",
+      alignContent: "center",
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: "150px",
+      backgroundColor: "aliceblue",
+      borderRadius: "20px",
+      border: "5px",
+      width: "100%",
+      height: "100%",
+      padding: "10px",}}>    
         <Link to={"/home"}>
           <Button>volver</Button>
         </Link>
@@ -38,8 +49,6 @@ export const DetailPage = () => {
         <Subtitle>vida: {life}</Subtitle>
         <Subtitle>temperamentos: {temperament}</Subtitle>
         <Image src={image} alt={name} />
-        <ID>id: {id}</ID>
-      </CardStyle>
-    </Content>
+    </div>
   );
 }

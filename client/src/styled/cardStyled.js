@@ -33,8 +33,9 @@ export const Content = styled.div`
 export const CardStyle = styled.div`
   
   background-position: center;
-  background-color: #79d1d530;
-  border-radius: 8px;
+  background-color: #353c43fa;
+  color: wheat;
+  border-radius: 25px;
   width: 100%;
   max-width: 250px;
   min-width: 250px;
