@@ -18,7 +18,7 @@ export const getDogs = () => {
   return async (dispatch) => {
     try {
       const data = await axios.get(endPoint);
-      console.log(data);
+      // console.log(data);
       if (!data) throw Error("no se encontraron perritos");
       return dispatch({
         type: GET_DOGS,
@@ -62,7 +62,7 @@ export const getTemperaments = () => {
         payload: temperaments.data,
       });
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       alert("temperamentos perdidos");
     }
   };
@@ -90,7 +90,7 @@ export const orderByWeight = (weight) => {
 };
 
 export const getDogDetail = (id) => {
-  console.log(id)
+  // console.log(id)
   const endPoint = `/dogs/${id}`;
   return async (dispatch) => {
     try {
@@ -111,7 +111,7 @@ export const postDog= (props)=>{
     try {
       const newDog = await axios.post(endPoint, props)
       alert(`creado correctamente`);
-      console.log(newDog)
+      // console.log(newDog)
       if(newDog.length > 0){
         return dispatch({
           type: POST_DOG,

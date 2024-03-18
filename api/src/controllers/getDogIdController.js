@@ -3,7 +3,7 @@ const { Dog, Temperaments } = require("../db");
 
 async function getDogsId(id) {
   const URL = "https://api.thedogapi.com/v1/breeds";
-  console.log(typeof id);
+  // console.log(typeof id);
   try {
     if (id.length <= 3) {
       const response = await axios.get(URL);
@@ -28,7 +28,7 @@ async function getDogsId(id) {
         where: { id: id },
         include: Temperaments
       });
-      console.log(dogFound)
+      // console.log(dogFound)
       if (dogFound) {
         const {name, id, life_span, image, weight, height, temperaments } = dogFound
         return dogDetil = {

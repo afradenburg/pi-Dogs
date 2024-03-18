@@ -56,6 +56,11 @@ export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+    background-color: #9bd5c5;
+  }
 `;
 
 export const Title = styled.h1`
@@ -78,6 +83,9 @@ background-position: center;
 border-radius: 100px;
 height: 100%;
 max-height: 180px;
+&:hover {
+  border  : 3px solid #9bd5c5
+  }
 `;
 
 export const ID = styled.h3`

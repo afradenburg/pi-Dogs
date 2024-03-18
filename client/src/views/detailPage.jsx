@@ -25,7 +25,7 @@ export const DetailPage = () => {
     dispatch(getDogDetail(id));
   },[dispatch, id])
   
-  console.log(dogDetail)
+  // console.log(dogDetail)
   return (
     <div style={{display: "flex",
       flexDirection: "column",
@@ -43,12 +43,12 @@ export const DetailPage = () => {
         <Link to={"/home"}>
           <Button>volver</Button>
         </Link>
-        <Title>{name}</Title>
-        <Subtitle>altura: {height} cm</Subtitle>
-        <Subtitle>peso: {weight} Kg</Subtitle>
-        <Subtitle>vida: {life}</Subtitle>
-        <Subtitle>temperamentos: {temperament}</Subtitle>
-        <Image src={image} alt={name} />
+        <h1>Hola soy {name}</h1>
+        <Subtitle>Tengo una altura entre los {height} centimetros</Subtitle>
+        <Subtitle>Mi peso puede ser entre {weight} Kg</Subtitle>
+        <Subtitle>Mi esperanza de vida es de : {life} años</Subtitle>
+        <Subtitle>Me caracterizo por ser: {temperament}</Subtitle>
+        <Image style={{borderRadius: "15px"}}src={image} alt={name} />
     </div>
   );
 }

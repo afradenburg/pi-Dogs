@@ -47,7 +47,7 @@ export const SearchBar = () => {
   }, [dispatch]);
 
   const handleByTemperament = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     dispatch(filterByTemperament(event.target.value));
   };
 

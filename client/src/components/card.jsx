@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Card = ({dog}) => {
   const { name, id, image, weight, height, life, temperament } = dog 
   const key = id;
-  console.log(dog)
+  // console.log(dog)
 
   return (
     <CardStyle>

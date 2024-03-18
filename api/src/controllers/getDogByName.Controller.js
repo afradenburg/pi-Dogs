@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 const { Dog, Temperaments } = require('../db');
 async function getByName(name) {
   const URL = "https://api.thedogapi.com/v1/breeds";
-  console.log(name);
+  // console.log(name);
 
   try {
     if (name) {
@@ -35,7 +35,7 @@ async function getByName(name) {
         throw new Error("No se encontró ningún perro con ese nombre");
       }
       const { id, image, weight, height,} = result
-      console.log(result)
+      // console.log(result)
       return dogDetil = {
         name: name,
         id: id,
