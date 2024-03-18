@@ -20,7 +20,7 @@ export const DetailPage = () => {
   const dogDetail = useSelector((state)=>state.DogsCopy);
   const { name, image,  height, weight, temperament, life } = dogDetail;
   
-  console.log(typeof(id))
+  // console.log(typeof(id))
   useEffect(()=>{
     dispatch(getDogDetail(id));
   },[dispatch, id])
