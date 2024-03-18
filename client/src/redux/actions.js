@@ -137,7 +137,8 @@ export const resetState= ()=>{
 }
 
 export const deleteDog = (id) => {
-  const endPoint = `/dogs/delete/${id}`; 
+  console.log(id)
+  const endPoint = `/dogs/${id}`; 
   return async (dispatch) => {
     try {
       const response = await axios.delete(endPoint);
