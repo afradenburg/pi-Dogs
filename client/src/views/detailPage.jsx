@@ -36,7 +36,7 @@ const handleDelete = () => {
       alignContent: "center",
       justifyContent: "center",
       alignItems: "center",
-      marginTop: "150px",
+      marginTop: "50px",
       backgroundColor: "aliceblue",
       borderRadius: "20px",
       border: "5px",
