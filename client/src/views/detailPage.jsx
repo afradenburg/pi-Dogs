@@ -3,7 +3,7 @@ import { useEffect }  from 'react'
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogDetail } from '../redux/actions';
+import { getDogDetail, deleteDog } from '../redux/actions';
 import { Button } from "../styled/button";
 import {
   CardStyle,
@@ -20,12 +20,15 @@ export const DetailPage = () => {
   const dogDetail = useSelector((state)=>state.DogsCopy);
   const { name, image,  height, weight, temperament, life } = dogDetail;
   
-  console.log(id)
+  console.log(typeof(id))
   useEffect(()=>{
     dispatch(getDogDetail(id));
   },[dispatch, id])
+
+const handleDelete = () => {
+  dispatch(deleteDog(id));
+};
   
-  // console.log(dogDetail)
   return (
     <div style={{display: "flex",
       flexDirection: "column",
@@ -43,6 +46,7 @@ export const DetailPage = () => {
         <Link to={"/home"}>
           <Button>volver</Button>
         </Link>
+        {id.length > 3 ? <Button onClick={handleDelete}> eliminar </Button> : ""}
         <h1>Hola soy {name}</h1>
         <Subtitle>Tengo una altura entre los {height} centimetros</Subtitle>
         <Subtitle>Mi peso puede ser entre {weight} Kg</Subtitle>
