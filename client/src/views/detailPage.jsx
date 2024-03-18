@@ -46,13 +46,15 @@ const handleDelete = () => {
         <Link to={"/home"}>
           <Button>volver</Button>
         </Link>
-        {id.length > 3 ? <Button onClick={handleDelete}> eliminar </Button> : ""}
         <h1>Hola soy {name}</h1>
         <Subtitle>Tengo una altura entre los {height} centimetros</Subtitle>
         <Subtitle>Mi peso puede ser entre {weight} Kg</Subtitle>
         <Subtitle>Mi esperanza de vida es de : {life} años</Subtitle>
         <Subtitle>Me caracterizo por ser: {temperament}</Subtitle>
         <Image style={{borderRadius: "15px"}}src={image} alt={name} />
+        {id.length > 3 ? <Button style={{backgroundColor:"red"}}onClick={handleDelete}> eliminar </Button> : ""}
+        {id.length > 3 ? <p style={{color: "red"}}> esta accion es irreversible, elimine con cuidado</p> :""}
+
     </div>
   );
 }
