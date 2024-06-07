@@ -12,7 +12,7 @@ import axios from 'axios';
 
 
 // axios.defaults.baseURL = 'https://localhost:3001'
-axios.defaults.baseURL = 'https://pi-dogs-gratis.up.railway.app'
+axios.defaults.baseURL = 'https://dogs-backend-en4j.onrender.com'
 
 function App() {
   const dispatch = useDispatch();
